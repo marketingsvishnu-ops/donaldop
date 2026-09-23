@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,5 +183,845 @@
     }
 
     .hero p {
-      mar
+      margin: 30px 0;
+      max-width: 530px;
+      color: #aaa;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* 3D BUTTON */
+
+    .hero-button {
+      display: inline-block;
+
+      padding: 17px 30px;
+
+      color: #00140b;
+      background: var(--neon);
+
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+
+      transform: translateZ(30px);
+
+      box-shadow:
+        0 8px 0 #008f4d,
+        0 15px 25px rgba(0,255,136,.25);
+
+      transition: .2s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(5px);
+      box-shadow:
+        0 3px 0 #008f4d,
+        0 8px 20px rgba(0,255,136,.35);
+    }
+
+    /* 3D OBJECT */
+
+    .scene {
+      width: 400px;
+      height: 400px;
+
+      position: relative;
+
+      perspective: 900px;
+    }
+
+    .cube {
+      width: 230px;
+      height: 230px;
+
+      position: absolute;
+      top: 80px;
+      left: 80px;
+
+      transform-style: preserve-3d;
+
+      animation: rotateCube 12s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 230px;
+      height: 230px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 2px solid var(--neon);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,255,136,.12),
+          rgba(0,0,0,.5)
+        );
+
+      box-shadow:
+        inset 0 0 30px rgba(0,255,136,.1),
+        0 0 20px rgba(0,255,136,.1);
+
+      backdrop-filter: blur(5px);
+    }
+
+    .face span {
+      font-size: 45px;
+      color: var(--neon);
+      text-shadow: 0 0 25px var(--neon);
+    }
+
+    .front {
+      transform: translateZ(115px);
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(115px);
+    }
+
+    .right {
+      transform: rotateY(90deg) translateZ(115px);
+    }
+
+    .left {
+      transform: rotateY(-90deg) translateZ(115px);
+    }
+
+    .top {
+      transform: rotateX(90deg) translateZ(115px);
+    }
+
+    .bottom {
+      transform: rotateX(-90deg) translateZ(115px);
+    }
+
+    @keyframes rotateCube {
+
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+
+    }
+
+    /* FLOATING BALLS */
+
+    .ball {
+      position: absolute;
+
+      border-radius: 50%;
+
+      background: var(--neon);
+
+      box-shadow:
+        0 0 20px var(--neon),
+        0 0 60px rgba(0,255,136,.5);
+
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .ball.one {
+      width: 18px;
+      height: 18px;
+      top: 30px;
+      right: 40px;
+    }
+
+    .ball.two {
+      width: 10px;
+      height: 10px;
+      bottom: 40px;
+      left: 30px;
+      animation-delay: 1s;
+    }
+
+    .ball.three {
+      width: 25px;
+      height: 25px;
+      bottom: 80px;
+      right: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+
+      margin: 0 7%;
+      padding: 30px;
+
+      background: var(--card);
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+
+      backdrop-filter: blur(15px);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.05);
+    }
+
+    .stat {
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+
+    .stat:last-child {
+      border: none;
+    }
+
+    .stat h2 {
+      color: var(--neon);
+      font-size: 30px;
+      text-shadow: 0 0 15px rgba(0,255,136,.4);
+    }
+
+    .stat p {
+      margin-top: 8px;
+      color: #777;
+      font-size: 10px;
+    }
+
+    /* SECTIONS */
+
+    section.content {
+      padding: 120px 7%;
+    }
+
+    .label {
+      color: var(--neon);
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: clamp(35px,5vw,60px);
+      margin-bottom: 55px;
+      text-shadow: 3px 3px 0 #082116;
+    }
+
+    /* 3D CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 30px;
+
+      perspective: 1000px;
+    }
+
+    .card {
+      min-height: 300px;
+
+      padding: 35px;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.09),
+          rgba(255,255,255,.02)
+        );
+
+      border: 1px solid rgba(255,255,255,.1);
+
+      border-radius: 18px;
+
+      transform-style: preserve-3d;
+
+      transition: .5s;
+
+      box-shadow:
+        15px 20px 40px rgba(0,0,0,.4);
+    }
+
+    .card:hover {
+      transform:
+        rotateX(8deg)
+        rotateY(-8deg)
+        translateY(-15px);
+
+      border-color: var(--neon);
+
+      box-shadow:
+        20px 30px 60px rgba(0,0,0,.6),
+        0 0 25px rgba(0,255,136,.15);
+    }
+
+    .card-icon {
+      width: 65px;
+      height: 65px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+
+      background: rgba(0,255,136,.08);
+
+      border: 1px solid rgba(0,255,136,.3);
+
+      color: var(--neon);
+
+      font-size: 25px;
+
+      margin-bottom: 35px;
+
+      transform: translateZ(40px);
+
+      box-shadow: 0 0 25px rgba(0,255,136,.08);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 15px;
+
+      transform: translateZ(30px);
+    }
+
+    .card p {
+      color: #888;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      font-size: 14px;
+
+      transform: translateZ(20px);
+    }
+
+    /* MEMBERSHIP */
+
+    .membership {
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(0,255,136,.08),
+          transparent 50%
+        );
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 30px;
+    }
+
+    .plan {
+      padding: 40px 30px;
+
+      background: rgba(255,255,255,.04);
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      border-radius: 20px;
+
+      box-shadow:
+        10px 15px 40px rgba(0,0,0,.4);
+
+      transition: .4s;
+    }
+
+    .plan:hover {
+      transform: translateY(-15px) rotateX(4deg);
+      border-color: var(--neon);
+    }
+
+    .plan.featured {
+      border: 1px solid var(--neon);
+
+      box-shadow:
+        0 0 30px rgba(0,255,136,.1),
+        15px 20px 50px rgba(0,0,0,.5);
+    }
+
+    .plan h3 {
+      color: var(--neon);
+      font-size: 17px;
+    }
+
+    .price {
+      font-size: 50px;
+      font-weight: 900;
+      margin: 25px 0;
+    }
+
+    .price span {
+      font-size: 10px;
+      color: #777;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .plan li {
+      color: #999;
+      font-family: Arial, sans-serif;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .plan li::before {
+      content: "✓";
+      color: var(--neon);
+      margin-right: 10px;
+    }
+
+    .plan-btn {
+      display: block;
+      text-align: center;
+
+      padding: 14px;
+
+      color: var(--neon);
+      text-decoration: none;
+
+      border: 1px solid var(--neon);
+      border-radius: 5px;
+
+      font-size: 11px;
+
+      transition: .3s;
+    }
+
+    .plan-btn:hover {
+      background: var(--neon);
+      color: black;
+      box-shadow: 0 0 25px rgba(0,255,136,.3);
+    }
+
+    /* CTA */
+
+    .cta {
+      margin: 80px 7%;
+      padding: 100px 30px;
+
+      text-align: center;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,255,136,.12),
+          rgba(0,0,0,.5)
+        );
+
+      border: 1px solid rgba(0,255,136,.2);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        inset 0 0 50px rgba(0,255,136,.03);
+    }
+
+    .cta h2 {
+      font-size: clamp(35px,6vw,75px);
+      text-shadow:
+        4px 4px 0 #07331f,
+        0 0 30px rgba(0,255,136,.15);
+    }
+
+    .cta span {
+      color: var(--neon);
+    }
+
+    .cta p {
+      color: #888;
+      font-family: Arial, sans-serif;
+      margin: 20px auto 35px;
+      max-width: 550px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+
+      border-top: 1px solid rgba(255,255,255,.06);
+
+      color: #555;
+      font-size: 11px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .scene {
+        transform: scale(.75);
+        margin-top: 30px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+      }
+
+      .stat:nth-child(2) {
+        border: none;
+      }
+
+      .cards,
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+
+    <div class="logo">
+      3D<span>FIT</span>
+    </div>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#programs">PROGRAMS</a>
+      <a href="#membership">MEMBERSHIP</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <a href="#membership" class="join-btn">
+      JOIN NOW
+    </a>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <div class="small-title">
+        NEXT GENERATION FITNESS
+      </div>
+
+      <h1>
+        BUILD<br>
+        YOUR<br>
+        <span>POWER.</span>
+      </h1>
+
+      <p>
+        Enter a new dimension of fitness.
+        Train harder, move faster and build a stronger
+        version of yourself with our next-generation
+        training experience.
+      </p>
+
+      <a href="#membership" class="hero-button">
+        START TRAINING →
+      </a>
+
+    </div>
+
+
+    <!-- 3D CUBE -->
+
+    <div class="scene">
+
+      <div class="cube">
+
+        <div class="face front">
+          <span>FIT</span>
+        </div>
+
+        <div class="face back">
+          <span>3D</span>
+        </div>
+
+        <div class="face right">
+          <span>FIT</span>
+        </div>
+
+        <div class="face left">
+          <span>GYM</span>
+        </div>
+
+        <div class="face top">
+          <span>+</span>
+        </div>
+
+        <div class="face bottom">
+          <span>+</span>
+        </div>
+
+      </div>
+
+      <div class="ball one"></div>
+      <div class="ball two"></div>
+      <div class="ball three"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <h2>10K+</h2>
+      <p>MEMBERS</p>
+    </div>
+
+    <div class="stat">
+      <h2>25+</h2>
+      <p>TRAINERS</p>
+    </div>
+
+    <div class="stat">
+      <h2>50+</h2>
+      <p>CLASSES</p>
+    </div>
+
+    <div class="stat">
+      <h2>24/7</h2>
+      <p>ACCESS</p>
+    </div>
+
+  </div>
+
+
+  <!-- PROGRAMS -->
+
+  <section class="content" id="programs">
+
+    <div class="label">
+      TRAINING SYSTEM
+    </div>
+
+    <h2 class="title">
+      ENTER THE<br>GRIND.
+    </h2>
+
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">01</div>
+
+        <h3>POWER</h3>
+
+        <p>
+          Build explosive strength with progressive
+          resistance training and advanced equipment.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">02</div>
+
+        <h3>PERFORMANCE</h3>
+
+        <p>
+          Improve speed, stamina and athletic performance
+          through high-intensity functional training.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">03</div>
+
+        <h3>PHYSIQUE</h3>
+
+        <p>
+          Sculpt your body with structured bodybuilding
+          programs designed around your goals.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEMBERSHIP -->
+
+  <section class="content membership" id="membership">
+
+    <div class="label">
+      MEMBERSHIP
+    </div>
+
+    <h2 class="title">
+      CHOOSE YOUR<br>LEVEL.
+    </h2>
+
+
+    <div class="plans">
+
+      <div class="plan">
+
+        <h3>STARTER</h3>
+
+        <div class="price">
+          $29 <span>/ MONTH</span>
+        </div>
+
+        <ul>
+          <li>Gym access</li>
+          <li>Locker access</li>
+          <li>Fitness assessment</li>
+          <li>Training app</li>
+        </ul>
+
+        <a href="#contact" class="plan-btn">
+          SELECT PLAN
+        </a>
+
+      </div>
+
+
+      <div class="plan featured">
+
+        <h3>PRO</h3>
+
+        <div class="price">
+          $59 <span>/ MONTH</span>
+        </div>
+
+        <ul>
+          <li>24/7 gym access</li>
+          <li>All group classes</li>
+          <li>Personal training</li>
+          <li>Nutrition consultation</li>
+        </ul>
+
+        <a href="#contact" class="plan-btn">
+          SELECT PLAN
+        </a>
+
+      </div>
+
+
+      <div class="plan">
+
+        <h3>ELITE</h3>
+
+        <div class="price">
+          $99 <span>/ MONTH</span>
+        </div>
+
+        <ul>
+          <li>Unlimited access</li>
+          <li>Unlimited classes</li>
+          <li>Weekly PT sessions</li>
+          <li>Custom nutrition plan</li>
+        </ul>
+
+        <a href="#contact" class="plan-btn">
+          SELECT PLAN
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <div class="cta" id="contact">
+
+    <h2>
+      READY TO<br>
+      <span>LEVEL UP?</span>
+    </h2>
+
+    <p>
+      Your transformation starts with one decision.
+      Step into the next dimension of fitness.
+    </p>
+
+    <a href="mailto:hello@3dfit.com" class="hero-button">
+      JOIN THE GYM →
+    </a>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+      © 2026 3DFIT FITNESS
+    </div>
+
+    <div>
+      TRAIN • BUILD • EVOLVE
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
 ```
